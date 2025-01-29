@@ -1,0 +1,9 @@
+### Docker
+
+1. docker compose up or docker compose up -d
+2. docker compose -p book-tracker up -d
+
+## USER BD ORACLE
+
+`docker exec -it agutierrezl-oracle sqlplus sys/agutierrezl@localhost:1521/XEPDB1 as sysdba`
+`SELECT username FROM dba_users WHERE username = 'AGUTIERREZL';`

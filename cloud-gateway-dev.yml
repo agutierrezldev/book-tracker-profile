@@ -1,0 +1,16 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9080}
+
+# Spring Cloud Gateway Router
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        - id: book-tracker-service-route
+          uri: lb://book-tracker-service #http://service-1.com, http://service-2.com
+          predicates:
+            - Path=/api/book-tracker-service/**
+          filters:
+            - StripPrefix=2
+            - AddRequestParameter=paramName, paramValue
