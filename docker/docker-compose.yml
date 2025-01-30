@@ -2,26 +2,26 @@ version: '3.9'
 
 services:
   oracle-db:
-    image: gvenzl/oracle-xe:21-slim # Imagen oficial de Oracle XE
+    image: gvenzl/oracle-xe:21-slim
     container_name: agutierrezl-oracle
     environment:
-      ORACLE_PASSWORD: agutierrezl            # Contraseña para SYS y SYSTEM
-      ORACLE_DATABASE: book_tracker_db        # Nombre de la base de datos
-      ORACLE_USER: agutierrezl                # Usuario personalizado
-      ORACLE_PASSWORD_BOOK_TRACKER: agutierrezl # Contraseña del usuario
+      ORACLE_PASSWORD: agutierrezl
+      ORACLE_DATABASE: book_tracker_db
+      ORACLE_USER: agutierrezl
+      ORACLE_PASSWORD_BOOK_TRACKER: agutierrezl
     ports:
-      - 1522:1521                            # Puerto para conectarse a Oracle DB
-      - 5501:5500                            # Puerto del Enterprise Manager (opcional)
+      - 1522:1521
+      - 5501:5500
     networks:
       - agutierrezl
 
   oracle-adminer:
-    image: adminer                           # Adminer para gestionar Oracle DB
+    image: adminer
     container_name: agutierrezl-oracle-adminer
     ports:
-      - 8081:8080                            # Puerto para acceder a la interfaz gráfica
+      - 8081:8080
     environment:
-      ADMINER_DEFAULT_SERVER: oracle-db      # Conectar a Oracle desde Adminer
+      ADMINER_DEFAULT_SERVER: oracle-db
     networks:
       - agutierrezl
 
